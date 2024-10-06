@@ -1,0 +1,143 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 60px;
+}
+
+.header {
+    width: 100%;
+    background-color: #ccc;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+}
+
+.home-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.input-field {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.profile-icon img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+input[type="email"], input[type="password"] {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.login-container p {
+    margin-bottom: 10px;
+}
+
+.login-container > h2 {
+    margin-bottom: 20px;
+}
+
+/* Adjacent Sibling Selector for the "or" text */
+h2 + p {
+    margin-top: 0;
+    font-size: 14px;
+    color: gray;
+}
+
+/* General Sibling Selector for the "Forget password" link */
+p ~ a {
+    color: #00f;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+/* Button styles */
+button {
+    padding: 10px;
+    background-color: #2f3d7e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1c285a;
+}
+
+/* Flexbox for responsive layout */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .login-container {
+        width: 100%;
+        max-width: 300px;
+    }
+}
