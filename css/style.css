@@ -63,15 +63,15 @@ textarea, input[type="file"] {
     padding: 10px;
     border-radius: 5px;
 }
-textarea + p {
-    font-size: 14px;
+
+input + button {
+    font-size: 16px;
 }
 
-.button {
+textarea ~ button {
     padding: 10px 20px;
     background-color: #183565;
     color: #f1ecec;
-    font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
