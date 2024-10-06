@@ -28,7 +28,7 @@ body {
 }
 
 .nav .link:hover {
-    background-color: #6f86cc;
+    background-color: #c9c7c7;
 }
 
 .nav > .icon img {
@@ -47,6 +47,9 @@ body {
 
 .form-group {
     margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #postBody {
@@ -79,7 +82,7 @@ textarea ~ button {
 }
 
 .button:hover {
-    background-color: #28518d;
+    background-color: #c9c7c7;
 }
 
 /* Flexbox for responsive layout */
