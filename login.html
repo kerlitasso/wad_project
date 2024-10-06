@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="loginStyle.css">
+    <link rel="stylesheet" href="css/loginStyle.css">
 </head>
 
 <body>
     <header class="header">
         <span class="home-text">Home</span>
         <span class="profile-icon">
-            <img src="defaultpfp.png" alt="Profile">
+            <img src="images/defaultpfp.png" alt="Profile">
         </span>
     </header>
 
@@ -19,7 +19,8 @@
         <h2>Welcome to PostIt</h2>
         <p><a href="#">Create an account</a></p>
         <p>or</p>
-        <div class="container">
+        <!--When the form is correctly submitted, the user is redirected to the index.html page-->
+        <form id="loginForm" action="index.html" onsubmit="return validateForm()">
             <div class="input-field">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email">
@@ -28,10 +29,8 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password">
             </div>
-            <div class="input-field"></div>
-                <button type="submit">Log In</button>
-            </div>
-        </div>
+            <button type="submit" class="button">Log In</button>
+        </form>
         <a href="#">Forget password</a>
     </div>
 

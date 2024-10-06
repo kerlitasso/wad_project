@@ -10,6 +10,7 @@ body {
     line-height: 1.5;
 }
 
+/* Header */
 .nav {
     display: flex;
     justify-content: space-between;
@@ -79,4 +80,16 @@ textarea + p {
 
 .button:hover {
     background-color: #28518d;
+}
+
+/* Flexbox for responsive layout */
+@media (max-width: 1000px) {
+    body {
+        padding: 10px;
+    }
+
+    .container-form {
+        width: 100%;
+        max-width: 500px;
+    }
 }

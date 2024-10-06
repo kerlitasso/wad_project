@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background-color: #f1ecec;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+/* Header*/
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #949090;
+    padding: 10px;
+    border-radius: 5px;
+}
+.nav .link {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 10px;
+}
+.nav .link:hover {
+    background-color: #6f86cc;
+}
+.profile-icon img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: stretch;
+}
+.sidebar {
+    width: 15%;
+    background-color: navajowhite;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Rest of the space*/
+.posts-container{
+    flex: 0.8;
+    margin-right: 0 20px;
+}
+.post {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Profile picture and date*/
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.post-header .profile-picture img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.post-header .post-date {
+    font-size: 12px;
+    color: black;
+}
+.post-content img.post-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+/* Likes and comments */
+.post-footer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+}
+.likes-comments{
+    display: flex;
+    gap: 20px;
+}
+.likes, .comments {
+    display: flex;
+    align-items: center;
+}
+.likes img, .comments img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+.likes span, .comments span {
+    font-size: 14px;
+    color: black;
+}
+/* Footer */
+.footer {
+    background-color: #949090;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+}
