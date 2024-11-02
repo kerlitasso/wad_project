@@ -12,9 +12,16 @@
                 <a href="index.html" class="link">Home</a>
                 <a href="addPost.html" class="link">Add Post</a>
                 <div class="profile-icon">
-                    <a href="login.html">
+                    <button id="profile-pic" class="profile-button" aria-haspopup="true">
                         <img src="images/defaultpfp.png" alt="Login">
-                    </a>
+                    </button>
+                    <div id="dropdown-menu" class="dropdown-hidden">
+                        <ul>
+                            <li id="username">John Doe</li>
+                            <li id="email">john.doe@example.com</li>
+                            <li><a href="login.html" id="logout">Logout</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
             
@@ -30,179 +37,6 @@
             <!-- Posts -->
              <div class="posts-container" id="posts-container">
 
-                <div class="post">
-                    <div class="post-header">
-                        <div class="profile-picture">
-                            <img src="images/defaultpfp.png" alt="Profile Picture">                
-                        </div>
-                        <div class="post-date">
-                            <span>October 5, 2024</span>
-                        </div>
-                    </div>
-
-                    <div class="post-content">
-                        <p>Sai alguse õpilaste- ja tudengite võistluse Delta X sissejuhatav laager!</p>
-                        <img src="images/robo_fb.jpg" alt="Delta X" class="post-image">
-                    </div>
-
-                    <div class="post-footer">
-                        <div class="likes-comments">
-                            <div class="likes">
-                                <img src="images/heart.png" alt="Like">
-                                <span>18</span>
-                            </div>
-                            <div class="comments">
-                                <img src="images/comment.png" alt="Comment">
-                                <span>3</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <div class="post-header">
-                        <div class="profile-picture">
-                            <img src="images/defaultpfp.png" alt="Profile Picture">                
-                        </div>
-                        <div class="post-date">
-                            <span>October 6, 2024</span>
-                        </div>
-                    </div>
-    
-                        <div class="post-content">
-                            <p>Does anybody have a calculator I could borrow this Tuesday? </p>
-                        </div>
-    
-                        <div class="post-footer">
-                            <div class="likes-comments">
-                                <div class="likes">
-                                    <img src="images/heart.png" alt="Like">
-                                    <span>10</span>
-                                </div>
-                                <div class="comments">
-                                    <img src="images/comment.png" alt="Comment">
-                                    <span>4</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                <div class="post">
-                        <div class="post-header">
-                            <div class="profile-picture">
-                                <img src="images/defaultpfp.png" alt="Profile Picture">                
-                            </div>
-                            <div class="post-date">
-                                <span>October 1, 2024</span>
-                            </div>
-                        </div>
-    
-                        <div class="post-content">
-                            <p>Hi! Is there still anybody who has not found enough members for the group work in Software Project? If yes, maybe I can join.</p>
-                        </div>
-    
-                        <div class="post-footer">
-                            <div class="likes-comments">
-                                <div class="likes">
-                                    <img src="images/heart.png" alt="Like">
-                                    <span>5</span>
-                                </div>
-                                <div class="comments">
-                                    <img src="images/comment.png" alt="Comment">
-                                    <span>2</span>
-                                </div>
-                            </div>
-                            
-                        </div>
-                </div>
-
-                <div class="post">
-                        <div class="post-header">
-                            <div class="profile-picture">
-                                <img src="images/defaultpfp.png" alt="Profile Picture">                
-                            </div>
-                            <div class="post-date">
-                                <span>September 22, 2024</span>
-                            </div>
-                        </div>
-    
-                        <div class="post-content">
-                            <p>Looks so pretty, doesn't it?</p>
-                            <img src="images/tartu24.jpg" alt="Delta X" class="post-image">
-                        </div>
-    
-                        <div class="post-footer">
-                            <div class="likes-comments">
-                                <div class="likes">
-                                    <img src="images/heart.png" alt="Like">
-                                    <span>57</span>
-                                </div>
-                                <div class="comments">
-                                    <img src="images/comment.png" alt="Comment">
-                                    <span>9</span>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-                <div class="post">
-                        <div class="post-header">
-                            <div class="profile-picture">
-                                <img src="images/defaultpfp.png" alt="Profile Picture">                
-                            </div>
-                            <div class="post-date">
-                                <span>October 6, 2024</span>
-                            </div>
-                        </div>
-    
-                        <div class="post-content">
-                            <p>Has anybody seen a blue backpack in Delta? It has a pink water bottle in the side pocket. I lost it a few hours ago...</p>
-                        </div>
-    
-                        <div class="post-footer">
-                            <div class="likes-comments">
-                                <div class="likes">
-                                    <img src="images/heart.png" alt="Like">
-                                    <span>12</span>
-                                </div>
-                                <div class="comments">
-                                    <img src="images/comment.png" alt="Comment">
-                                    <span>1</span>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-                <div class="post">
-                    <div class="post-header">
-                        <div class="profile-picture">
-                            <img src="images/defaultpfp.png" alt="Profile Picture">                
-                        </div>
-                        <div class="post-date">
-                            <span>October 1, 2024</span>
-                        </div>
-                    </div>
-
-                    <div class="post-content">
-                        <p>A small example of creating ngrams.</p>
-                        <img src="images/ngrams.jpg" alt="Delta X" class="post-image">
-                    </div>
-
-                    <div class="post-footer">
-                        <div class="likes-comments">
-                            <div class="likes">
-                                <img src="images/heart.png" alt="Like">
-                                <span>9</span>
-                            </div>
-                            <div class="comments">
-                                <img src="images/comment.png" alt="Comment">
-                                <span>2</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                </div>
             </div>
 
             <div class="sidebar">
