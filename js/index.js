@@ -63,18 +63,7 @@ async function loadPosts() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const profilePicture = document.getElementById('profile-pic')
-    const dropdownMenu = document.getElementById('dropdown-menu');
-
-    // Dropdown menu is toggled when the profile picture is pressed
-    profilePicture.addEventListener('click', function(event) {
-        event.stopPropagation();
-        dropdownMenu.classList.toggle('dropdown-visible');
-        dropdownMenu.classList.toggle('dropdown-hidden');
-    });
-});
-
-
-// Call loadPosts on page load
-document.addEventListener('DOMContentLoaded', loadPosts);
+// shows or hides the dropdown menu, when the profile picture is clicked
+function toggleDropdown() {
+    document.getElementById("dropdown-menu").classList.toggle("show");
+}

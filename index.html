@@ -12,15 +12,13 @@
                 <a href="index.html" class="link">Home</a>
                 <a href="addPost.html" class="link">Add Post</a>
                 <div class="profile-icon">
-                    <button id="profile-pic" class="profile-button" aria-haspopup="true">
+                    <button onclick="toggleDropdown()" class="dropbtn">
                         <img src="images/defaultpfp.png" alt="Login">
                     </button>
-                    <div id="dropdown-menu" class="dropdown-hidden">
-                        <ul>
-                            <li id="username">John Doe</li>
-                            <li id="email">john.doe@example.com</li>
-                            <li><a href="login.html" id="logout">Logout</a></li>
-                        </ul>
+                    <div id="dropdown-menu" class="dropdown-content">
+                        <div>John Doe</div>
+                        <div>john.doe@ut.ee</div>
+                        <a href="login.html" id="Logout">Logout</a>
                     </div>
                 </div>
             </nav>
