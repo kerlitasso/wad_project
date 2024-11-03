@@ -123,5 +123,16 @@ body{
     .sidebar {
         display: none;
     }
-
 }
+.dropdown-hidden {
+    display: none;
+}
+
+.dropdown-visible {
+    display: block;
+}
+
+#dropdown-menu {
+    position: absolute;
+}
+
