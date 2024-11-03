@@ -1,7 +1,7 @@
 async function loadPosts() {
     try {
-        // const response = await fetch('https://api.npoint.io/4ab7b65fe5b554488cd3');
-        const response = await fetch("posts.json")
+        const response = await fetch('https://api.npoint.io/4ab7b65fe5b554488cd3');
+        //const response = await fetch("posts.json")
         const data = await response.json();
 
         const postsContainer = document.getElementById('posts-container');
@@ -67,3 +67,4 @@ async function loadPosts() {
 function toggleDropdown() {
     document.getElementById("dropdown-menu").classList.toggle("show");
 }
+document.addEventListener('DOMContentLoaded', loadPosts);
