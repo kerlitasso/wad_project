@@ -29,7 +29,7 @@ export default {
   methods: {
     ...mapActions(['loadPosts']),
     resetLikes() {
-      this.$store.commit('resetLikes'); // This commits the resetLikes mutation
+      this.$store.commit('resetLikes'); 
     },
   },
 };
