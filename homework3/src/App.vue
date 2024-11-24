@@ -23,6 +23,7 @@ export default {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  margin: 0;
 }
 
 #app > * {
@@ -33,6 +34,7 @@ export default {
   flex: 1 1 auto;
   overflow-y: auto;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 </style>

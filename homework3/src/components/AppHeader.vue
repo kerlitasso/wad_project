@@ -18,10 +18,19 @@ export default {
 header {
   background: lightgray;
   padding: 10px;
+  height: 60px;
   text-align: center;
   border-radius: 15px;
   border-bottom: 2px solid #ccc; /* Subtle border for separation */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 header p {
   margin: 0;
@@ -34,7 +43,7 @@ nav a {
   margin: 0 10px;
   text-decoration: none;
   color: black;
-  font-size: 14px;
+  font-size: 16px;
 }
 nav a.router-link-active {
   font-weight: bold;

@@ -42,9 +42,10 @@ main {
 }
 .posts-container {
   max-width: 700px;
-  max-height: calc(100vh - 80px);
+  max-height: calc(100vh - 160px);
   overflow-y: auto;
   padding-bottom: 20px;
+  margin-top: 60px;
 }
 @media (max-width: 600px) {
   .posts-container {

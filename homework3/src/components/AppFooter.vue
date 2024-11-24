@@ -17,8 +17,15 @@ footer {
   padding: 10px;
   font-size: 0.9rem;
   border-radius: 15px;
+  margin-top: auto;
   border-bottom: 2px solid #ccc; /* Subtle border for separation */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 footer a {
   color: blue;
