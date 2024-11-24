@@ -10,6 +10,7 @@
             <label>Password:</label>
             <input type="password" v-model="password" placeholder="Password" required />
           </div>
+          <p v-if="showError" class="error-message">{{ passwordError }}</p>
           <button type="submit">Signup</button>
         </form>
       </div>
@@ -22,12 +23,49 @@
       return {
         email: '',
         password: '',
+        passwordError: '',
+        showError: false,
       };
     },
     methods: {
       handleSignup() {
-        alert(`Signed up with email: ${this.email}`);
+        if (this.validatePassword(this.password)) {
+          this.$router.push('/');
+        } else {
+          this.showError = true;
+        }
       },
+      validatePassword(password) {
+        const errors = [];
+        this.passwordError = '';
+        if (password.length < 8){
+          errors.push('should be longer than 8 characters');
+        }
+        if (password.length > 15){
+          errors.push('should be shorter than 15 characters');
+        }
+        // checks for uppercase letters
+        if (!/[A-Z]/.test(password)) {
+          errors.push('should include an uppercase letter');
+        }
+        if (!(password.match(/[a-z]/g) || []).length > 1){
+          errors.push('should include at least 2 lowercase letters')
+        }
+        if (!/\d/.test(password)){
+          errors.push('should include a numeric value')
+        }
+        if (!/^[A-Z]/.test(password)) {
+              errors.push('should start with an uppercase letter');
+        }
+        if (!/_/.test(password)) {
+              errors.push('should include the character "_"');
+        }
+        if (errors.length > 0){
+          this.passwordError = `The password is not valid: ${errors.join(', ')}.`;
+          return false;
+        }
+        return true;
+      }
     },
   };
   </script>
@@ -59,8 +97,15 @@
     justify-content: space-between; 
     align-items: center; 
     margin-bottom: 15px;
+    font-size: 20px;
   }
-  
+  .error-message {
+  color: firebrick;
+  font-size: 16px;
+  margin-top: 5px;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+  }
+
   
   .signup-form label {
     flex: 1; 
