@@ -1,16 +1,18 @@
 <template>
     <main>
-      <form class="signup-form" @submit.prevent="handleSignup">
-        <label>
-          Email:
-          <input type="email" v-model="email" required />
-        </label>
-        <label>
-          Password:
-          <input type="password" v-model="password" required />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
+      <div class="signup-box">
+        <form class="signup-form" @submit.prevent="handleSignup">
+          <div class="form-group">
+            <label>Email:</label>
+            <input type="email" v-model="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <label>Password:</label>
+            <input type="password" v-model="password" placeholder="Password" required />
+          </div>
+          <button type="submit">Signup</button>
+        </form>
+      </div>
     </main>
   </template>
   
@@ -31,24 +33,66 @@
   </script>
   
   <style>
+ 
   main {
-    padding: 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #f4f4f9; 
+    margin: 0;
+    padding: 0;
   }
-  .signup-form {
-    background: #f8f8f8;
-    padding: 20px;
+  
+  .signup-box {
+    background: #ffffff; 
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 300px;
+  }
+  
+  .signup-form .form-group {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 15px;
+  }
+  
+  
+  .signup-form label {
+    flex: 1; 
+    text-align: left; 
+  }
+  .signup-form input::placeholder {
+  color: #a0a0a0;
+  text-align: center;
+}
+  
+  .signup-form input {
+    flex: 2; 
+    text-align: right;
+    padding: 5px;
     border: 1px solid lightgray;
     border-radius: 5px;
   }
-  .signup-form label {
-    display: block;
-    margin-bottom: 10px;
-  }
+  
+  
   .signup-form button {
-    margin-top: 10px;
-    padding: 5px 10px;
+    width: 100%; 
+    padding: 10px;
+    background-color: #add8e6; 
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .signup-form button:hover {
+    background-color: #87ceeb; 
   }
   </style>
   
