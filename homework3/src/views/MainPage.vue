@@ -1,32 +1,56 @@
 <template>
     <main>
-      <div v-for="post in posts" :key="post.id" class="post">
-        {{ post.title }}
+      <div class="posts-container">
+        <UserPost
+            v-for="post in posts"
+            :key="post.id"
+            :post="post"
+        />
+        <button class="reset-button" @click="resetLikes">Reset Likes</button>
       </div>
     </main>
   </template>
   
-  <script>
-  import { mapGetters } from 'vuex';
-  
-  export default {
-    computed: {
-      ...mapGetters(['allPosts']),
+<script>
+
+import UserPost from '@/components/UserPost.vue';
+import { mapGetters, mapActions } from 'vuex';
+
+export default {
+  components: {
+    UserPost,
+  },
+  computed: {
+    ...mapGetters(['allPosts']),
+    posts() {
+      return this.allPosts;
+    }
+  },
+  methods: {
+    ...mapActions(['loadPosts']),
+    resetLikes() {
+      this.$store.commit('resetLikes'); // This commits the resetLikes mutation
     },
-  };
-  </script>
-  
-  <style>
-  main {
-    padding: 20px;
-    text-align: center;
-  }
-  .post {
-    background: white;
-    margin: 10px auto;
+  },
+};
+</script>
+
+<style>
+main {
+  padding: 20px;
+  text-align: center;
+}
+.posts-container {
+  max-width: 700px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+@media (max-width: 600px) {
+  .posts-container {
     padding: 10px;
-    border: 1px solid lightgray;
-    width: 200px;
+    margin-bottom: 15px;
   }
-  </style>
+}
+</style>
   
