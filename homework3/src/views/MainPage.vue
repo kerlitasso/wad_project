@@ -29,7 +29,7 @@ export default {
   methods: {
     ...mapActions(['loadPosts']),
     resetLikes() {
-      this.$store.commit('resetLikes'); // This commits the resetLikes mutation
+      this.$store.commit('resetLikes'); 
     },
   },
 };
@@ -46,6 +46,18 @@ main {
   overflow-y: auto;
   padding-bottom: 20px;
   margin-top: 60px;
+}
+.reset-button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.reset-button:hover {
+  background-color: #dadada;
 }
 @media (max-width: 600px) {
   .posts-container {
