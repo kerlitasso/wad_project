@@ -1,11 +1,14 @@
 <template>
     <div class="add-post-container">
+      <div class="post-form-container">
+        <h2 class="title">Add Post</h2>
 
-      <h2>New Post</h2>
+        <div class="form-body">
+          <textarea v-model="postBody" placeholder="Write your text here" rows="6" cols="40"></textarea>
+        </div>
 
-      <textarea v-model="postBody" placeholder="Write your text here" rows="4" cols="50"></textarea>
-
-      <button @click="addPost">Add Post</button>
+        <button class="addbutton" @click="addPost">Add Post</button>
+      </div>
     </div>
   </template>
   
@@ -18,42 +21,61 @@
       };
     },
     methods: {
-    async addPost() {
+      async addPost() {
+
         if (this.postBody.trim() === "") {
-        alert("The post body cannot be empty!");
-        return;
-      }
+          alert("The post body cannot be empty!");
+          return;
+        }
+        const data = {
+          body: this.postBody,
+        };
 
-      const currentDate = new Date().toISOString();
+        try {
+          const token = localStorage.getItem("authToken");
+          const response = await fetch("http://localhost:3000/posts", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+            },
+            body: JSON.stringify(data),
+          });
 
-      const data ={
-        body: this.postBody,
-        created_at: currentDate,
-      }
-    try {
-        const token = localStorage.getItem('authToken');
-        const response = await axios.post('http://localhost:3000/posts', {
-            headers: {Authorization: `Bearer ${token}`},
-        });
-        console.log('Post added successfully:', response.data);
-        this.$router.push('/posts');
-    } catch (err) {
-        alert('Error fetching posts: ' + err.response.data.message);
-    }
+          if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || "Failed to add post");
+          }
+          const responseData = await response.json();
+          console.log("Post added:", responseData);
+          this.$router.push("/home");
+        } catch (err) {
+          console.error("Error adding post:", err);
+          alert("Error adding post: " + err.message);
+        }
+      },
     },
-  
-    },
-};
+  }
+
   </script>
   
   <style scoped>
-  .auth-container {
+  .add-post-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: top;
     height: 100vh;
     background-color: #e6e6e6;
+  }
+  .post-form-container {
+    background-color: #f0f5e1;
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   header {
@@ -64,43 +86,51 @@
     font-size: 18px;
     text-align: center;
   }
-  
-  .form-card {
-    background-color: #f0f5e1;
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px gray;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
+
   label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
   }
-  
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .form-body {
+    margin-bottom: 20px;
+  }
+
   input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
+
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    resize: vertical;
+  }
   
-  .signup-btn {
+  .addbutton {
     background-color: #6a9ac4;
     color: white;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
+    width: 30%;
     font-size: 14px;
   }
   
-  .signup-btn:hover {
+  .addbutton:hover {
     background-color: #4b7ba0;
   }
   </style>
