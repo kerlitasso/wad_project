@@ -102,7 +102,7 @@ input {
 .delete,
 .add,
 .logout{
-  background-color: #6a9ac4;
+  background-color: #4b7ba0;
   color: white;
   border: none;
   padding: 8px 15px;
@@ -126,7 +126,7 @@ span {
   color: #555;
 }
 .posts-container {
-  flex-grow: 1;  /* Allow the posts container to expand and take the available space */
+  flex-grow: 1;
 
 }
 </style>
