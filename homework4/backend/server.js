@@ -28,16 +28,6 @@ const authenticateToken = (req, res, next) => {
     next();
   });
 };
-
-// Routes
-const routes = [
-  { path: '/', component: Home },
-  { path: '/login', component: Login },
-  { path: '/signup', component: Signup },
-  { path: '/home', component: Home },
-  { path: '/post/:id', component: Post },
-  { path: '/add-post', component: AddPost },
-];
 // Signup
 app.post('/signup', async (req, res) => {
   const { email, password } = req.body;
