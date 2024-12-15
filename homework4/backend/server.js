@@ -14,6 +14,7 @@ const JWT_SECRET = 'sug743852hfequaoifh09';
 
 app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
 app.use(express.json());
+
 // Initialize database on startup
 initializeDatabase();
 
