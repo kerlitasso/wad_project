@@ -28,10 +28,33 @@ export default {
   },
   methods: {
     register() {
-      // Call backend API to register the user
       console.log("Registering user:", this.email, this.password);
+      var data = {
+        email: this.email,
+        password: this.password
+      };
+      // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
+      fetch("http://localhost:3000/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            this.$router.push("/login");
+            //location.assign("/");
+          })
+          .catch((e) => {
+            console.log(e);
+            console.log("error");
+          });
     },
-  },
+    // Call backend API to register the user
+    },
+
 };
 </script>
 

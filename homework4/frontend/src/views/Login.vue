@@ -31,6 +31,31 @@ export default {
   },
   methods: {
     login() {
+      var data = {
+        email: this.email,
+        password: this.password
+      };
+      // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
+      fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.token) {
+              localStorage.setItem('authToken', data.token);
+              this.$router.push('/home');
+            } else {
+              this.errorMessage = "Invalid credentials, try again";
+            }
+          })
+          .catch((e) => {
+            console.log(e);
+            console.log("error");
+          });
       // Call backend API to log in the user
       console.log("Logging in user:", this.email, this.password);
     },

@@ -3,6 +3,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 const { pool, initializeDatabase } = require('./database');
 
 // Server and JWT setup
@@ -11,8 +12,8 @@ const PORT = 3000;
 const JWT_SECRET = 'sug743852hfequaoifh09'; 
 
 
+app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
 app.use(express.json());
-
 // Initialize database on startup
 initializeDatabase();
 
@@ -29,7 +30,14 @@ const authenticateToken = (req, res, next) => {
 };
 
 // Routes
-
+const routes = [
+  { path: '/', component: Home },
+  { path: '/login', component: Login },
+  { path: '/signup', component: Signup },
+  { path: '/home', component: Home },
+  { path: '/post/:id', component: Post },
+  { path: '/add-post', component: AddPost },
+];
 // Signup
 app.post('/signup', async (req, res) => {
   const { email, password } = req.body;

@@ -2,6 +2,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue';
 import Signup from '../views/Signup.vue';
+import Post from "../views/Post.vue";
+import AddPost from "../views/AddPost.vue";
 
 const routes = [
   {
@@ -25,7 +27,17 @@ const routes = [
     path: '/contacts',
     name: 'contacts',
     component: () => import(/* webpackChunkName: "about" */ '../views/Contacts.vue')
-  }
+  },
+  {
+    path: '/post',
+    component: Post,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: '/addpost',
+    component: AddPost,
+    meta: { requiresAuth: true },
+  },
 ]
 
 const router = createRouter({
@@ -34,7 +46,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = !!localStorage.getItem('token'); // Check if token exists
+  const isAuthenticated = !!localStorage.getItem('authToken'); // Check if token exists
   if (to.meta.requiresAuth && !isAuthenticated) {
     next('/login'); // Redirect to login if not authenticated
   } else {
