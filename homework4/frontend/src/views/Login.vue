@@ -15,6 +15,7 @@
           <span>Or</span>
           <button type="button" class="signup-btn" @click="$router.push('/signup')">Sign up</button>
         </div>
+        <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
       </form>
     </div>
   </div>
@@ -27,6 +28,7 @@ export default {
     return {
       email: "",
       password: "",
+      errorMessage: "",
     };
   },
   methods: {
@@ -49,14 +51,13 @@ export default {
               localStorage.setItem('authToken', data.token);
               this.$router.push('/home');
             } else {
-              this.errorMessage = "Invalid credentials, try again";
+              this.errorMessage = "Invalid credentials";
             }
           })
           .catch((e) => {
             console.log(e);
             console.log("error");
           });
-      // Call backend API to log in the user
       console.log("Logging in user:", this.email, this.password);
     },
   },
@@ -138,5 +139,11 @@ span {
   margin: 0 5px;
   font-size: 14px;
   color: #555;
+}
+.error-message {
+  color: #000000;
+  font-size: 16px;
+  margin-top: 5px;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
 }
 </style>

@@ -24,6 +24,7 @@ export default {
     return {
       email: "",
       password: "",
+      err
     };
   },
   methods: {
@@ -45,14 +46,12 @@ export default {
           .then((data) => {
             console.log(data);
             this.$router.push("/login");
-            //location.assign("/");
           })
           .catch((e) => {
             console.log(e);
             console.log("error");
           });
     },
-    // Call backend API to register the user
     },
 
 };
@@ -115,4 +114,5 @@ input {
 .signup-btn:hover {
   background-color: #4b7ba0;
 }
+
 </style>
