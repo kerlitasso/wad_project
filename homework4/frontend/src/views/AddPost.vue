@@ -1,48 +1,57 @@
 <template>
     <div class="add-post-container">
-
-      <h2>New Post</h2>
-
-      <textarea v-model="postBody" placeholder="Write your text here" rows="4" cols="50"></textarea>
-
-      <button @click="addPost">Add Post</button>
+      <div class="form-card">
+      <form @submit.prevent="addPost">
+        <h2>New Post</h2>
+        <div class="form-group">
+          <label for="body">Body</label>
+          <textarea v-model="body" placeholder="Write your post here..." required></textarea>
+        </div>
+        <button type="submit" class="addPost-btn">Add Post</button>
+      </form>
+      </div>
     </div>
   </template>
   
   <script>
+  import axios from 'axios';
   export default {
-    name: "AddPostPage",
     data() {
       return {
-        postBody: "",
+        body: "",
       };
     },
+
     methods: {
-    async addPost() {
-        if (this.postBody.trim() === "") {
-        alert("The post body cannot be empty!");
-        return;
-      }
-
-      const currentDate = new Date().toISOString();
-
-      const data ={
-        body: this.postBody,
-        created_at: currentDate,
-      }
-    try {
-        const token = localStorage.getItem('authToken');
-        const response = await axios.post('http://localhost:3000/posts', {
-            headers: {Authorization: `Bearer ${token}`},
-        });
-        console.log('Post added successfully:', response.data);
-        this.$router.push('/posts');
-    } catch (err) {
-        alert('Error fetching posts: ' + err.response.data.message);
+      async addPost() {
+    // Validate post body
+    if (this.body.trim() === "") {
+      alert("The post body cannot be empty!");
+      return;
     }
-    },
-  
-    },
+
+    try {
+      const data = { body: this.body };
+      const token = localStorage.getItem('authToken');
+      // Send POST request
+      const response = await axios.post('http://localhost:3000/posts', data,{
+        headers: {
+          'Authorization': `Basic ${token}`
+        }
+      });
+      this.$router.push("/home");
+      } catch (err) {
+        // Handle errors
+        if (err.response) {
+          console.error("Error response:", err.response.data);
+          alert(`Error: ${err.response.data.message}`);
+        } else {
+          console.error("Unexpected error:", err);
+          alert("An unexpected error occurred.");
+        }
+      }
+  },
+  },
 };
   </script>
   
